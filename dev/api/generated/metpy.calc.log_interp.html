@@ -134,12 +134,13 @@
 <li class="toctree-l3"><a class="reference internal" href="metpy.calc.bulk_shear.html">bulk_shear</a></li>
 <li class="toctree-l3"><a class="reference internal" href="metpy.calc.bunkers_storm_motion.html">bunkers_storm_motion</a></li>
 <li class="toctree-l3"><a class="reference internal" href="metpy.calc.cape_cin.html">cape_cin</a></li>
-<li class="toctree-l3"><a class="reference internal" href="metpy.calc.convergence_vorticity.html">convergence_vorticity</a></li>
 <li class="toctree-l3"><a class="reference internal" href="metpy.calc.coriolis_parameter.html">coriolis_parameter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="metpy.calc.density.html">density</a></li>
 <li class="toctree-l3"><a class="reference internal" href="metpy.calc.dewpoint.html">dewpoint</a></li>
 <li class="toctree-l3"><a class="reference internal" href="metpy.calc.dewpoint_rh.html">dewpoint_rh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="metpy.calc.divergence_vorticity.html">divergence_vorticity</a></li>
 <li class="toctree-l3"><a class="reference internal" href="metpy.calc.dry_lapse.html">dry_lapse</a></li>
+<li class="toctree-l3"><a class="reference internal" href="metpy.calc.dry_static_energy.html">dry_static_energy</a></li>
 <li class="toctree-l3"><a class="reference internal" href="metpy.calc.el.html">el</a></li>
 <li class="toctree-l3"><a class="reference internal" href="metpy.calc.equivalent_potential_temperature.html">equivalent_potential_temperature</a></li>
 <li class="toctree-l3"><a class="reference internal" href="metpy.calc.find_intersections.html">find_intersections</a></li>
@@ -152,7 +153,7 @@
 <li class="toctree-l3"><a class="reference internal" href="metpy.calc.get_wind_components.html">get_wind_components</a></li>
 <li class="toctree-l3"><a class="reference internal" href="metpy.calc.get_wind_dir.html">get_wind_dir</a></li>
 <li class="toctree-l3"><a class="reference internal" href="metpy.calc.get_wind_speed.html">get_wind_speed</a></li>
-<li class="toctree-l3"><a class="reference internal" href="metpy.calc.h_convergence.html">h_convergence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="metpy.calc.h_divergence.html">h_divergence</a></li>
 <li class="toctree-l3"><a class="reference internal" href="metpy.calc.heat_index.html">heat_index</a></li>
 <li class="toctree-l3"><a class="reference internal" href="metpy.calc.height_to_pressure_std.html">height_to_pressure_std</a></li>
 <li class="toctree-l3"><a class="reference internal" href="metpy.calc.interp.html">interp</a></li>
@@ -171,6 +172,7 @@
 <li class="toctree-l3"><a class="reference internal" href="metpy.calc.mixing_ratio.html">mixing_ratio</a></li>
 <li class="toctree-l3"><a class="reference internal" href="metpy.calc.mixing_ratio_from_specific_humidity.html">mixing_ratio_from_specific_humidity</a></li>
 <li class="toctree-l3"><a class="reference internal" href="metpy.calc.moist_lapse.html">moist_lapse</a></li>
+<li class="toctree-l3"><a class="reference internal" href="metpy.calc.moist_static_energy.html">moist_static_energy</a></li>
 <li class="toctree-l3"><a class="reference internal" href="metpy.calc.montgomery_streamfunction.html">montgomery_streamfunction</a></li>
 <li class="toctree-l3"><a class="reference internal" href="metpy.calc.most_unstable_cape_cin.html">most_unstable_cape_cin</a></li>
 <li class="toctree-l3"><a class="reference internal" href="metpy.calc.most_unstable_parcel.html">most_unstable_parcel</a></li>
@@ -191,10 +193,12 @@
 <li class="toctree-l3"><a class="reference internal" href="metpy.calc.shearing_stretching_deformation.html">shearing_stretching_deformation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="metpy.calc.sigma_to_pressure.html">sigma_to_pressure</a></li>
 <li class="toctree-l3"><a class="reference internal" href="metpy.calc.significant_tornado.html">significant_tornado</a></li>
+<li class="toctree-l3"><a class="reference internal" href="metpy.calc.specific_humidity_from_mixing_ratio.html">specific_humidity_from_mixing_ratio</a></li>
 <li class="toctree-l3"><a class="reference internal" href="metpy.calc.storm_relative_helicity.html">storm_relative_helicity</a></li>
 <li class="toctree-l3"><a class="reference internal" href="metpy.calc.stretching_deformation.html">stretching_deformation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="metpy.calc.supercell_composite.html">supercell_composite</a></li>
 <li class="toctree-l3"><a class="reference internal" href="metpy.calc.surface_based_cape_cin.html">surface_based_cape_cin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="metpy.calc.thickness_hydrostatic.html">thickness_hydrostatic</a></li>
 <li class="toctree-l3"><a class="reference internal" href="metpy.calc.tke.html">tke</a></li>
 <li class="toctree-l3"><a class="reference internal" href="metpy.calc.total_deformation.html">total_deformation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="metpy.calc.v_vorticity.html">v_vorticity</a></li>
@@ -302,20 +306,19 @@ ValueError if points are out of bounds. Defaults to nan.</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><ul class="simple">
-<li><em>array-like</em> – Interpolated values for each point with coordinates sorted in ascending order.</li>
-<li><em>Examples</em> – ——–
-&gt;&gt;&gt; x_log = np.array([1e3, 1e4, 1e5, 1e6])
-&gt;&gt;&gt; y_log = np.log(x_log) * 2 + 3
-&gt;&gt;&gt; x_interp = np.array([5e3, 5e4, 5e5])
-&gt;&gt;&gt; metpy.calc.log_interp(x_interp, x_log, y_log)
-array([ 20.03438638,  24.63955657,  29.24472675])</li>
-</ul>
-</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><em>array-like</em> – Interpolated values for each point with coordinates sorted in ascending order.</p>
 </td>
 </tr>
 </tbody>
 </table>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x_log</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1e3</span><span class="p">,</span> <span class="mf">1e4</span><span class="p">,</span> <span class="mf">1e5</span><span class="p">,</span> <span class="mf">1e6</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y_log</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">x_log</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x_interp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">5e3</span><span class="p">,</span> <span class="mf">5e4</span><span class="p">,</span> <span class="mf">5e5</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">metpy</span><span class="o">.</span><span class="n">calc</span><span class="o">.</span><span class="n">log_interp</span><span class="p">(</span><span class="n">x_interp</span><span class="p">,</span> <span class="n">x_log</span><span class="p">,</span> <span class="n">y_log</span><span class="p">)</span>
+<span class="go">array([ 20.03438638,  24.63955657,  29.24472675])</span>
+</pre></div>
+</div>
 <p class="rubric">Notes</p>
 <p>xp and args must be the same shape.</p>
 </dd></dl>
@@ -351,8 +354,8 @@ array([ 20.03438638,  24.63955657,  29.24472675])</li>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2016, MetPy Developers.
-      Last updated on Nov 03, 2017 at 16:03:50.
+        &copy; Copyright 2017, MetPy Developers.
+      Last updated on Dec 07, 2017 at 23:26:22.
 
     </p>
   </div>
@@ -390,7 +393,7 @@ array([ 20.03438638,  24.63955657,  29.24472675])</li>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'0.6.0+96.gd290880',
+            VERSION:'0.6.1+42.gf8972eb',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',

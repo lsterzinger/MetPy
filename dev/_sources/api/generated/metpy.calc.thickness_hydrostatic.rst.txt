@@ -1,11 +1,11 @@
-convergence_vorticity
+thickness_hydrostatic
 ================================
 
 .. currentmodule:: metpy.calc
 
-.. autofunction:: convergence_vorticity
+.. autofunction:: thickness_hydrostatic
 
-.. include:: metpy.calc.convergence_vorticity.examples
+.. include:: metpy.calc.thickness_hydrostatic.examples
 
 .. raw:: html
 

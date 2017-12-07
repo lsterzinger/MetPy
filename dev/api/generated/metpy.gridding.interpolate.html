@@ -230,7 +230,8 @@
 1) “linear”, “nearest”, “cubic”, or “rbf” from Scipy.interpolate.
 2) “natural_neighbor”, “barnes”, or “cressman” from Metpy.mapping .
 Default “linear”.</li>
-<li><strong>hres</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a>) – The horizontal resolution of the generated grid. Default 50000 meters.</li>
+<li><strong>hres</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a>) – The horizontal resolution of the generated grid, given in the same units as the
+x and y parameters. Default 50000.</li>
 <li><strong>minimum_neighbors</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.6)"><em>int</em></a>) – Minimum number of neighbors needed to perform barnes or cressman interpolation for a
 point. Default is 3.</li>
 <li><strong>gamma</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a>) – Adjustable smoothing parameter for the barnes interpolation. Default 0.25.</li>
@@ -294,8 +295,8 @@ information.</li>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2016, MetPy Developers.
-      Last updated on Nov 03, 2017 at 16:03:50.
+        &copy; Copyright 2017, MetPy Developers.
+      Last updated on Dec 07, 2017 at 23:26:22.
 
     </p>
   </div>
@@ -333,7 +334,7 @@ information.</li>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'0.6.0+96.gd290880',
+            VERSION:'0.6.1+42.gf8972eb',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',

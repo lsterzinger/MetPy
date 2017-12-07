@@ -134,12 +134,13 @@
 <li class="toctree-l3"><a class="reference internal" href="metpy.calc.bulk_shear.html">bulk_shear</a></li>
 <li class="toctree-l3"><a class="reference internal" href="metpy.calc.bunkers_storm_motion.html">bunkers_storm_motion</a></li>
 <li class="toctree-l3"><a class="reference internal" href="metpy.calc.cape_cin.html">cape_cin</a></li>
-<li class="toctree-l3"><a class="reference internal" href="metpy.calc.convergence_vorticity.html">convergence_vorticity</a></li>
 <li class="toctree-l3"><a class="reference internal" href="metpy.calc.coriolis_parameter.html">coriolis_parameter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="metpy.calc.density.html">density</a></li>
 <li class="toctree-l3"><a class="reference internal" href="metpy.calc.dewpoint.html">dewpoint</a></li>
 <li class="toctree-l3"><a class="reference internal" href="metpy.calc.dewpoint_rh.html">dewpoint_rh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="metpy.calc.divergence_vorticity.html">divergence_vorticity</a></li>
 <li class="toctree-l3"><a class="reference internal" href="metpy.calc.dry_lapse.html">dry_lapse</a></li>
+<li class="toctree-l3"><a class="reference internal" href="metpy.calc.dry_static_energy.html">dry_static_energy</a></li>
 <li class="toctree-l3"><a class="reference internal" href="metpy.calc.el.html">el</a></li>
 <li class="toctree-l3"><a class="reference internal" href="metpy.calc.equivalent_potential_temperature.html">equivalent_potential_temperature</a></li>
 <li class="toctree-l3"><a class="reference internal" href="metpy.calc.find_intersections.html">find_intersections</a></li>
@@ -152,7 +153,7 @@
 <li class="toctree-l3"><a class="reference internal" href="metpy.calc.get_wind_components.html">get_wind_components</a></li>
 <li class="toctree-l3"><a class="reference internal" href="metpy.calc.get_wind_dir.html">get_wind_dir</a></li>
 <li class="toctree-l3"><a class="reference internal" href="metpy.calc.get_wind_speed.html">get_wind_speed</a></li>
-<li class="toctree-l3"><a class="reference internal" href="metpy.calc.h_convergence.html">h_convergence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="metpy.calc.h_divergence.html">h_divergence</a></li>
 <li class="toctree-l3"><a class="reference internal" href="metpy.calc.heat_index.html">heat_index</a></li>
 <li class="toctree-l3"><a class="reference internal" href="metpy.calc.height_to_pressure_std.html">height_to_pressure_std</a></li>
 <li class="toctree-l3"><a class="reference internal" href="metpy.calc.interp.html">interp</a></li>
@@ -168,6 +169,7 @@
 <li class="toctree-l3"><a class="reference internal" href="metpy.calc.mixing_ratio.html">mixing_ratio</a></li>
 <li class="toctree-l3"><a class="reference internal" href="metpy.calc.mixing_ratio_from_specific_humidity.html">mixing_ratio_from_specific_humidity</a></li>
 <li class="toctree-l3"><a class="reference internal" href="metpy.calc.moist_lapse.html">moist_lapse</a></li>
+<li class="toctree-l3"><a class="reference internal" href="metpy.calc.moist_static_energy.html">moist_static_energy</a></li>
 <li class="toctree-l3"><a class="reference internal" href="metpy.calc.montgomery_streamfunction.html">montgomery_streamfunction</a></li>
 <li class="toctree-l3"><a class="reference internal" href="metpy.calc.most_unstable_cape_cin.html">most_unstable_cape_cin</a></li>
 <li class="toctree-l3"><a class="reference internal" href="metpy.calc.most_unstable_parcel.html">most_unstable_parcel</a></li>
@@ -188,10 +190,12 @@
 <li class="toctree-l3"><a class="reference internal" href="metpy.calc.shearing_stretching_deformation.html">shearing_stretching_deformation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="metpy.calc.sigma_to_pressure.html">sigma_to_pressure</a></li>
 <li class="toctree-l3"><a class="reference internal" href="metpy.calc.significant_tornado.html">significant_tornado</a></li>
+<li class="toctree-l3"><a class="reference internal" href="metpy.calc.specific_humidity_from_mixing_ratio.html">specific_humidity_from_mixing_ratio</a></li>
 <li class="toctree-l3"><a class="reference internal" href="metpy.calc.storm_relative_helicity.html">storm_relative_helicity</a></li>
 <li class="toctree-l3"><a class="reference internal" href="metpy.calc.stretching_deformation.html">stretching_deformation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="metpy.calc.supercell_composite.html">supercell_composite</a></li>
 <li class="toctree-l3"><a class="reference internal" href="metpy.calc.surface_based_cape_cin.html">surface_based_cape_cin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="metpy.calc.thickness_hydrostatic.html">thickness_hydrostatic</a></li>
 <li class="toctree-l3"><a class="reference internal" href="metpy.calc.tke.html">tke</a></li>
 <li class="toctree-l3"><a class="reference internal" href="metpy.calc.total_deformation.html">total_deformation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="metpy.calc.v_vorticity.html">v_vorticity</a></li>
@@ -333,8 +337,8 @@ for air. Defaults to the ratio for water vapor to dry air.
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2016, MetPy Developers.
-      Last updated on Nov 03, 2017 at 16:03:50.
+        &copy; Copyright 2017, MetPy Developers.
+      Last updated on Dec 07, 2017 at 23:26:22.
 
     </p>
   </div>
@@ -372,7 +376,7 @@ for air. Defaults to the ratio for water vapor to dry air.
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'0.6.0+96.gd290880',
+            VERSION:'0.6.1+42.gf8972eb',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',

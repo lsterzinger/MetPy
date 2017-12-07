@@ -17,12 +17,13 @@ calc
       bulk_shear
       bunkers_storm_motion
       cape_cin
-      convergence_vorticity
       coriolis_parameter
       density
       dewpoint
       dewpoint_rh
+      divergence_vorticity
       dry_lapse
+      dry_static_energy
       el
       equivalent_potential_temperature
       find_intersections
@@ -35,7 +36,7 @@ calc
       get_wind_components
       get_wind_dir
       get_wind_speed
-      h_convergence
+      h_divergence
       heat_index
       height_to_pressure_std
       interp
@@ -51,6 +52,7 @@ calc
       mixing_ratio
       mixing_ratio_from_specific_humidity
       moist_lapse
+      moist_static_energy
       montgomery_streamfunction
       most_unstable_cape_cin
       most_unstable_parcel
@@ -71,10 +73,12 @@ calc
       shearing_stretching_deformation
       sigma_to_pressure
       significant_tornado
+      specific_humidity_from_mixing_ratio
       storm_relative_helicity
       stretching_deformation
       supercell_composite
       surface_based_cape_cin
+      thickness_hydrostatic
       tke
       total_deformation
       v_vorticity
