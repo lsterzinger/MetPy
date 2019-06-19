@@ -12,7 +12,7 @@ from metpy.calc import (brunt_vaisala_frequency, brunt_vaisala_frequency_squared
                         dewpoint_from_specific_humidity, dewpoint_rh,
                         dry_lapse, dry_static_energy, el,
                         equivalent_potential_temperature,
-                        exner_function, isentropic_interpolation, lcl, lfc, mixed_layer,
+                        exner_function, pressure_from_exner, isentropic_interpolation, lcl, lfc, mixed_layer,
                         mixed_parcel, mixing_ratio, mixing_ratio_from_relative_humidity,
                         mixing_ratio_from_specific_humidity, moist_lapse,
                         moist_static_energy, most_unstable_cape_cin, most_unstable_parcel,
@@ -61,6 +61,13 @@ def test_exner_function():
     pres = np.array([900., 500., 300., 100.]) * units.mbar
     truth = np.array([0.9703542, 0.8203834, 0.7090065, 0.518048]) * units.dimensionless
     assert_array_almost_equal(exner_function(pres), truth, 6)
+
+
+def test_pressure_from_exner():
+    """Test pressure form Exner calculation"""
+    exner = np.array([0.9703542, 0.8203834, 0.7090065, 0.518048]) * units.dimensionless
+    truth = np.array([900., 500., 300., 100.]) * units.mbar
+    assert_array_almost_equal(pressure_from_exner(exner), truth, 4)
 
 
 def test_potential_temperature():

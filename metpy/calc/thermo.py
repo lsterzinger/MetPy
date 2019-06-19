@@ -92,6 +92,35 @@ def exner_function(pressure, reference_pressure=mpconsts.P0):
 
 @exporter.export
 @preprocess_xarray
+@check_units('[dimensionless]', '[pressure]')
+def pressure_from_exner(exner, ref_pressure=None):
+
+    r"""Calculate the pressure from the Exner function
+
+    .. math::p = p_0 * \Pi^{1/\kappa}
+
+    Parameters
+    ---------
+    Exner : `pint.Quantity`
+        The Exner function value
+    ref_pressure : `pint.Quantity`, optional
+        The reference pressure (default is 1000 mb)
+
+    Returns
+    ------
+    `pint.Quantity`
+        The value of pressure at the given Exner function
+    See Also
+    ------
+    exner_function
+    """
+    if ref_pressure is None:
+        ref_pressure = 1000 * units.millibar
+    return(ref_pressure*exner**(1/mpconsts.kappa))
+
+
+@exporter.export
+@preprocess_xarray
 @check_units('[pressure]', '[temperature]')
 def potential_temperature(pressure, temperature):
     r"""Calculate the potential temperature.
